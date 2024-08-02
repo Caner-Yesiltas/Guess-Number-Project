@@ -12,7 +12,39 @@ document.querySelector(".check").addEventListener("click", () => {
 
   if (!tahmin) {
     message.textContent = "lutfen bir tahmin giriniz";
-  } else if (tahmin === rastgelesayi) {
+  } else if (tahmin === rastgeleSayi) {
     message.textContent = "tebrikler bildiniz🎉";
+    
+    document.querySelector("body").style.backgroundColor="green"
+    document.querySelector("number").textContent=rastgelesayi;
+    document.querySelector(".check".disabled) = true;     // buton tiklanmaz kapali olur disabled komutu ile ! 
+
+
+    if( myscore>enYuksekSkor) {
+      enYuksekSkor=myScore;
+      document.querySelector('.top-score').textContent=enYuksekSkor;
+    }
+  }
+
+  else{
+    if(myscore>1) {
+
+      myScore--;
+
+    
+      document.querySelector('.my-score').textContent=myscore; // tempral literate ilede kullanilabilirdi 
+
+      tahmin > rastgeleSayi ? (message.textContent="azalt") : (message.textContent="arttir");
+
+
+    }
+
+    else{document.querySelector{"body"}.style.backgroundColor="red";
+    document.querySelector(".my-score").textContent=0;
+
+    message.textContent="oyunu kaybettiniz";
+    document.querySelector("check"),disabled=true;
+
+    }
   }
 });
